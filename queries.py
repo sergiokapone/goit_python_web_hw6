@@ -185,8 +185,7 @@ def handle_query_9(result):
 
 
 def handle_query_10(result):
-
-    ...
+    print(f"Предмет: {result[0][1]} для  {result[0][2]} читає  {result[0][0]} ")
 
 
 # ============================= Головна програма ==============================
@@ -228,6 +227,8 @@ if __name__ == "__main__":
         print("=" * 79)
         if i == 7:
             params = ("ФФ-11", "Фізика")
+        elif i == 10:
+            params = ("Аарон Цибуленко", "Микола Джеря")
         else:
             params = ()
         execute_query(f"query_{i}.sql", query_handlers[i][1], params=params)
