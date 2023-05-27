@@ -187,6 +187,27 @@ def handle_query_9(result):
 def handle_query_10(result):
     print(f"Предмет: {result[0][1]} для  {result[0][2]} читає  {result[0][0]} ")
 
+# -----------------------------------------------------------------------------
+
+
+def handle_query_11(result):
+    print(f"{result[0][0]} студенту {result[0][1]} ставить середній бал {result[0][2]}")
+
+
+# -----------------------------------------------------------------------------
+
+
+def handle_query_12(result):
+
+    table = PrettyTable()
+    table.field_names = ["Student", "Last grade", "Date"]
+    table.align["Teacher"] = "l"
+
+    for row in result:
+        student, last_grade, date = row
+        table.add_row([student, last_grade, date])
+
+    print(table)
 
 # ============================= Головна програма ==============================
 
@@ -220,14 +241,16 @@ if __name__ == "__main__":
             "Список курсів, які певному студенту читає певний викладач.",
             handle_query_10,
         ],
+        11: ["Середній бал, який певний викладач ставить певному студентові.", handle_query_11],
+        12: ["Оцінки студентів у певній групі з певного предмета на останньому занятті.", handle_query_12]
     }
     for i in range(1, len(query_handlers) + 1):
         print("=" * 79)
         print(f"{i}.  {query_handlers[i][0]}")
         print("=" * 79)
-        if i == 7:
+        if i in (7, 12):
             params = ("ФФ-11", "Фізика")
-        elif i == 10:
+        elif i in (10, 11):
             params = ("Аарон Цибуленко", "Микола Джеря")
         else:
             params = ()
