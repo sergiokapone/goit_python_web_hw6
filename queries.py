@@ -149,6 +149,22 @@ def handle_query_7(result):
     print(table)
 
 
+# -----------------------------------------------------------------------------
+
+
+def handle_query_8(result):
+
+    table = PrettyTable()
+    table.field_names = ["Teacher", "Subject", "Average Grade"]
+    table.align["Teacher"] = "l"
+
+    for row in result:
+        teacher_name, subject, average_grade = row
+        table.add_row([teacher_name, subject, average_grade])
+
+    print(table)
+
+
 # ============================= Головна програма ==============================
 
 if __name__ == "__main__":
@@ -168,6 +184,10 @@ if __name__ == "__main__":
         7: [
             "Знайти оцінки студентів у окремій групі з певного предмета.",
             handle_query_7,
+        ],
+        8: [
+            "Знайти середній бал, який ставить певний викладач зі своїх предметів.",
+            handle_query_8,
         ],
     }
     for i in range(1, len(query_handlers) + 1):
