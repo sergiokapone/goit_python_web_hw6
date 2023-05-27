@@ -170,7 +170,15 @@ def handle_query_8(result):
 
 def handle_query_9(result):
 
-    ...
+    table = PrettyTable()
+    table.field_names = ["Student", "Subjects"]
+    table.align["Teacher"] = "l"
+
+    for row in result:
+        student, subjects = row
+        table.add_row([student, subjects])
+
+    print(table)
 
 
 # -----------------------------------------------------------------------------
