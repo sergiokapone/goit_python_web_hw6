@@ -34,8 +34,7 @@ def handle_query_1(result):
 
     table = PrettyTable()
     table.field_names = ["Name", "Average Grade"]
-    table.align["Name"] = "l"  # Вирівнювання по лівому краю для першої колонки
-
+    table.align["Name"] = "l"  
     for row in result:
         student_id, student_name, average_grade = row
         table.add_row([student_name, average_grade])
@@ -49,7 +48,7 @@ def handle_query_1(result):
 def handle_query_3(result):
     table = PrettyTable()
     table.field_names = ["Group", "Subject", "Average Grade"]
-    table.align["Group"] = "l"  # Align the first column to the left
+    table.align["Group"] = "l"  
     prev_group = None
     group_count = 0
 
@@ -104,7 +103,7 @@ def handle_query_5(result):
 def handle_query_6(result):
     table = PrettyTable()
     table.field_names = ["Group", "Student"]
-    table.align["Group"] = "l"  # Align the first column to the left
+    table.align["Group"] = "l"  
     prev_group = None
     group_count = 0
 
@@ -130,7 +129,7 @@ def handle_query_7(result):
     print(f"Група: {result[0][0]}, Предмет: {result[0][1]}")
     table = PrettyTable()
     table.field_names = ["Student", "Grades", "Date"]
-    table.align["Student"] = "l"  # Align the first column to the left
+    table.align["Student"] = "l" 
 
     prev_student = None
     student_count = 0
@@ -220,10 +219,21 @@ if __name__ == "__main__":
             "Знайти студента із найвищим середнім балом з певного предмета.",
             handle_query_1,
         ],
-        3: ["Знайти середній бал у групах з певного предмета.", handle_query_3],
-        4: ["Знайти середній бал на потоці (по всій таблиці оцінок).", handle_query_4],
-        5: ["Знайти які курси читає певний викладач.", handle_query_5],
-        6: ["Знайти список студентів у певній групі.", handle_query_6],
+        3: [
+            "Знайти середній бал у групах з певного предмета.", 
+            handle_query_3
+        ],
+        4: [
+            "Знайти середній бал на потоці (по всій таблиці оцінок).", handle_query_4
+        ],
+        5: [
+            "Знайти які курси читає певний викладач.", 
+            handle_query_5
+        ],
+        6: [
+            "Знайти список студентів у певній групі.", 
+            handle_query_6
+        ],
         7: [
             "Знайти оцінки студентів у окремій групі з певного предмета.",
             handle_query_7,
@@ -240,8 +250,13 @@ if __name__ == "__main__":
             "Список курсів, які певному студенту читає певний викладач.",
             handle_query_10,
         ],
-        11: ["Середній бал, який певний викладач ставить певному студентові.", handle_query_11],
-        12: ["Оцінки студентів у певній групі з певного предмета на останньому занятті.", handle_query_12] 
+        11: [
+            "Середній бал, який певний викладач ставить певному студентові.",
+            handle_query_11
+        ],
+        12: [
+            "Оцінки студентів у певній групі з певного предмета на останньому занятті.", 
+            handle_query_12] 
     }
     for i in range(1, len(query_handlers) + 1):
         print("=" * 79)
