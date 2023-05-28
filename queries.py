@@ -4,28 +4,27 @@ from prettytable import PrettyTable
 # ============================= Обробник запитів ==============================
 def execute_query(query_file, result_handler, params=()):
     # Встановити з'єднання з базою даних
-    conn = sqlite3.connect("database.db")
-    cursor = conn.cursor()
+    with sqlite3.connect("database.db") as conn:
+        cursor = conn.cursor()
 
-    # Прочитати запит з файлу
-    with open(query_file, "r") as file:
-        query = file.read()
+        # Прочитати запит з файлу
+        with open(query_file, "r") as file:
+            query = file.read()
 
-    # Виконати запит з параметрами, якщо вони передані
-    if params:
-        cursor.execute(query, params)
-    else:
-        cursor.execute(query)
+        # Виконати запит з параметрами, якщо вони передані
+        if params:
+            cursor.execute(query, params)
+        else:
+            cursor.execute(query)
 
-    # Отримати результат
-    result = cursor.fetchall()
+        # Отримати результат
+        result = cursor.fetchall()
 
-    # Обробити результат за допомогою заданої функції
-    result_handler(result)
+        # Обробити результат за допомогою заданої функції
+        result_handler(result)
 
-    # Закрити з'єднання з базою даних
-    cursor.close()
-    conn.close()
+        # Закрити з'єднання з базою даних
+        cursor.close()
 
 
 # ================================ Обробники =================================
