@@ -2,6 +2,8 @@ import sqlite3
 from prettytable import PrettyTable
 
 # ============================= Обробник запитів ==============================
+
+
 def execute_query(query_file, result_handler, params=()):
     # Встановити з'єднання з базою даних
     with sqlite3.connect("database.db") as conn:
