@@ -42,3 +42,8 @@
 ## Вигдяд програми
 
 ![Вигляд програми](./pictures/exapmle.png)
+
+## Довідкові матеріали
+
+- [Довідник по SQL](https://code.mu/ru/sql/manual/)
+- [Додатковий курс по SQL від GoIT](https://goit.global/textbooks/mysql-qhg4na/v1/docs/)
